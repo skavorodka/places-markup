@@ -73,14 +73,6 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			template: './src/html/index.pug'
 		}),
-		new HtmlWebpackPlugin({
-			filename: 'inner.html',
-			template: './src/html/inner.pug'
-		}),
-		new HtmlWebpackPlugin({
-			filename: 'startup.html',
-			template: './src/html/startup.pug'
-		}),
 		new CopyWebpackPlugin([
 			{
 				from: './src/fonts',
