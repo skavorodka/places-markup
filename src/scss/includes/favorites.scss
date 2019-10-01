@@ -1,0 +1,25 @@
+.favorites {
+	color: #fff;
+	display: flex;
+	align-items: center;
+	position: relative;
+
+	svg {
+		margin-right: 15px;
+	}
+
+	span {
+		position: absolute;
+		left: 8px;
+		top: -8px;
+		background: $red;
+		border-radius: 50%;
+		color: #fff;
+		font-size: 10px;
+		width: 17px;
+		height: 17px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}

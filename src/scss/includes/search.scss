@@ -1,0 +1,30 @@
+.search-form {
+	flex-grow: 1;
+	margin: 0 20px;
+	display: flex;
+	align-items: center;
+	position: relative;
+
+	select, input {
+		height: 45px;
+		padding: 0 20px;
+	}
+
+	select {
+		border-top-left-radius: 5px;
+		border-bottom-left-radius: 5px;
+	}
+
+	input {
+		flex-grow: 1;
+		border-left: 1px solid #DFE1F0;
+		border-top-right-radius: 5px;
+		border-bottom-right-radius: 5px;
+	}
+
+	button {
+		position: absolute;
+		right: 20px;
+		top: 10px;
+	}
+}

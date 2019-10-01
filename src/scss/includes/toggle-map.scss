@@ -1,0 +1,17 @@
+.toggle-map {
+
+	svg {
+		display: none;
+	}
+
+	@media (max-width: $desktop) {
+
+		svg {
+			display: inline-block;
+		}
+
+		span {
+			display: none;
+		}
+	}
+}

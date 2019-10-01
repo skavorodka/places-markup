@@ -1,21 +1,10 @@
-@import "~bootstrap/dist/css/bootstrap-reboot.css";
-
 @import "~slick-carousel/slick/slick.css";
 @import "~slick-carousel/slick/slick-theme.css";
 @import "core/slick.scss";
 
+@import "core/variables.scss";
 @import "core/fonts.scss";
-@import "core/grid.scss";
-
-$red-color: #E51C24;
-$blue-color: #B5BBEA;
-$gray-color: #F2F3F9;
-
-html, body {
-	font-size: 15px;
-	line-height: 150%;
-	font-family: 'Futura PT', sans-serif;
-}
+@import "core/global.scss";
 
 @import "core/buttons.scss";
 @import "core/helpers.scss";
@@ -23,3 +12,7 @@ html, body {
 @import "core/forms.scss";
 
 @import "includes/header.scss";
+@import "includes/top-bar.scss";
+@import "includes/toggle-map.scss";
+@import "includes/search.scss";
+@import "includes/favorites.scss";

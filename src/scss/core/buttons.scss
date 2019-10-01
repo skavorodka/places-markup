@@ -1,62 +1,61 @@
-.more {
-	font-size: 23px;
-	line-height: 130%;
-	color: $red-color;
-	text-transform: uppercase;
-	font-weight: bold;
-	text-decoration: none;
-	display: block;
+.btn {
+	text-align: center;
+	cursor: pointer;
+	transition: $transition;
+	border-radius: 5px;
+	padding: 15px 20px;
+	color: #000;
+	display: inline-flex;
+	align-items: center;
 	border: none;
-	transition: .4s;
+	appearance: none;
 
-	&:after {
-		content: '';
-		width: 59px;
-		height: 18px;
-		background: url("data:image/svg+xml;utf8,%3Csvg%20width%3D%2259%22%20height%3D%2220%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M47.85%2019L57%2010m0%200l-9.15-9M57%2010H0%22%20stroke%3D%22%23E51C24%22%20stroke-width%3D%222%22%2F%3E%3C%2Fsvg%3E%0A");
-		display: inline-block;
-		margin-left: 30px;
-		transition: .6s;
+	&.btn-block {
+		width: 100%;
+		display: block;
+		text-align: center;
+		margin: 0 auto;
 	}
-	&:hover {
-		text-decoration: none;
-		color: lighten($red-color, 15%);
 
-		&:after {
-			transform: translate(10px, 0);
-		}
+	&.btn-upper {
+		font-family: $FuturaDemi;
+		text-transform: uppercase;
+		font-size: 14px;
 	}
-	&.white {
+
+	&.btn-primary {
+		background: $purple;
 		color: #fff;
 
-		&:after {
-			background: url("data:image/svg+xml;utf8,%3Csvg%20width%3D%2259%22%20height%3D%2220%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M47.85%2019L57%2010m0%200l-9.15-9M57%2010H0%22%20stroke%3D%22%23FFF%22%20stroke-width%3D%222%22%2F%3E%3C%2Fsvg%3E%0A");
+		&:hover{
+			background: $purple-hover;
 		}
+	}
+
+	&.btn-default {
+		background: $gray;
 
 		&:hover {
-			text-decoration: none;
-			opacity: .8;
+			background: $gray-hover;
 		}
 	}
-}
 
-.btn {
-	font-size: 20px;
-	line-height: 130%;
-	background: $red-color;
-	text-transform: uppercase;
-	font-weight: bold;
-	text-decoration: none;
-	display: inline-block;
-	padding: 20px;
-	color: #fff;
-	text-align: center;
-	transition: .4s;
-	border: none;
+	&.btn-warning {
+		background: $yellow;
 
-	&:hover {
-		background: lighten($red-color, 15%);
-		text-decoration: none;
+		&:hover {
+			background: $yellow-hover;
+		}
+	}
+
+	&.btn-success {
 		color: #fff;
+		background: $green;
+	}
+
+	&.btn-white {
+		background: #fff;
+		color: $purple;
 	}
 }
+

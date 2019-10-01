@@ -1,0 +1,48 @@
+.topbar {
+	background: url(../img/bg.jpg) no-repeat;
+	background-size: cover;
+	padding: 20px 0;
+
+	.container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.favorites {
+		display: flex;
+	}
+
+	.toggle-map {
+		border-top-right-radius: 5px;
+		border-bottom-right-radius: 5px;
+	}
+
+	.search-form {
+		margin: 0 20px;
+
+		select {
+			display: inline-block;
+		}
+	}
+
+	@media (max-width: $tablet) {
+		
+		.search-form {
+			margin: 0;
+
+			select {
+				display: none;
+			}
+		}
+
+		.toggle-map {
+			border-top-right-radius: 0;
+			border-bottom-right-radius: 0;
+		}
+
+		.favorites {
+			display: none;
+		}
+	}
+}
