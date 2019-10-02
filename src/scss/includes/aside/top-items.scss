@@ -1,0 +1,100 @@
+.top-items {
+
+	.item {
+		display: block;
+		border-bottom: 1px solid $gray-border;
+		padding: 15px 0;
+		position: relative;
+
+		&:first-child {
+			padding-top: 0;
+
+			svg {
+				top: 10px;
+			}
+		}
+
+		&:last-child {
+			border-bottom: none;
+			padding-bottom: 0;
+		}
+
+		span {
+			font-size: 20px;
+			display: block;
+			margin-bottom: 5px;
+			transition: $transition;
+		}
+
+		small {
+			display: block;
+		}
+
+		svg {
+			position: absolute;
+			right: 0;
+			top: 25px;
+			transition: $transition;
+		}
+
+		&:hover {
+			span {
+				color: $blue;
+			}
+
+			svg {
+				fill: $blue;
+			}
+		}
+	}
+}
+
+.main-content .top-items {
+
+	.body {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.item {
+		padding-left: 20px;
+		width: 50%;
+		border: 1px solid $gray-border;
+
+		&:first-child {
+			padding-top: 15px;
+
+			svg {
+				top: 25px;
+			}
+		}
+
+		svg {
+			right: 20px;
+		}
+	}
+
+	@media (max-width: $tablet) {
+		.body {
+			display: block;
+		}
+
+		.item {
+			padding-left: 0;
+			width: 100%;
+			border: none;
+
+			&:first-child {
+				padding-top: 15px;
+
+				svg {
+					top: 25px;
+				}
+			}
+
+			svg {
+				right: 20px;
+			}
+		}
+	}
+}

@@ -1,0 +1,82 @@
+footer {
+	background: url(../img/bg.jpg) no-repeat;
+	background-size: cover;
+	color: #fff;
+	padding: 40px 0;
+
+	.row {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 20px;
+	}
+
+	.links {
+		display: flex;
+		align-items: center;
+		width: 50%;
+		margin: 0 50px;
+
+		@media (max-width: $tablet) {
+			width: 100%;
+		}
+
+		a {
+			display: inline-block;
+			margin-right: 20px;
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+	}
+
+	@media (max-width: $laptop) {
+		.row {
+			flex-wrap: wrap;
+		}
+
+		.links {
+			margin: 20px 0;
+		}
+	}
+
+	.app-store {
+		background: url(../img/app-store.png);
+		width: 110px;
+		height: 40px;
+	}
+
+	.google-play {
+		background: url(../img/google-play.png);
+		width: 110px;
+		height: 40px;
+	}
+
+	.vk-link {
+		background: url(../img/vk-link.png);
+		width: 39px;
+		height: 39px;
+	}
+
+	.contacts {
+		white-space: nowrap;
+	}
+
+	.phone {
+		font-weight: 300;
+		font-size: 25px;
+		line-height: 38px;
+		display: block;
+	}
+
+	.mail {
+		font-size: 14px;
+		display: block;
+	}
+
+	.copy {
+		font-size: 14px;
+		opacity: .5;
+	}
+}

@@ -74,7 +74,7 @@ header {
 			}
 		}
 
-		@media (max-width: $md) {
+		@media (max-width: $tablet) {
 			& {
 				display: none;
 			}
@@ -92,7 +92,7 @@ header {
 			margin-left: 15px;
 		}
 
-		@media (max-width: $lg) {
+		@media (max-width: $laptop) {
 			&:first-child {
 				display: none;
 			}

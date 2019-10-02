@@ -1,0 +1,40 @@
+.aside-filters {
+
+	.main-filter {
+		
+		.body {
+			padding: 10px 0 20px;
+
+			@media (max-width: $desktop) {
+				padding: 10px 0 0;
+			}
+		}
+
+		select {
+			width: 100%;
+			padding: 15px 0;
+			background-color: transparent;
+			border-bottom: 1px solid $gray-border;
+
+			&:first-child {
+				padding-top: 0;
+			}
+
+			&:last-child {
+				margin-bottom: 20px;
+			}
+		}
+
+		.on-map {
+			display: flex;
+			align-items: center;
+			color: $blue;
+			margin-top: 20px;
+			padding: 0 20px;
+
+			svg {
+				margin-right: 10px;
+			}
+		}
+	}
+}

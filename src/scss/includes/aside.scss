@@ -1,0 +1,66 @@
+@import "aside/articles.scss";
+@import "aside/filters.scss";
+@import "aside/news.scss";
+@import "aside/top-items.scss";
+
+.aside-left {
+	display: flex;
+
+	aside {
+		top: 0;
+		width: 262px;
+		background: #fff;
+		left: -262px;
+		transition: $transition;
+		margin-right: 20px;
+		z-index: 1;
+
+		&.open {
+			left: 0;
+		}
+
+		.main-filter {
+			margin-bottom: 20px;
+		}
+
+		@media (max-width: $desktop) {
+			position: fixed;
+			margin-right: 0;
+			z-index: 6;
+
+			.wrapper {
+				overflow-y: scroll;
+				height: 100vh;
+			}
+
+			.main-filter {
+				margin-bottom: 0;
+			}
+		}
+
+		.toggle-aside {
+			position: absolute;
+			right: 0;
+			top: 88px;
+			display: none;
+
+			&.visible {
+				right: -55px;
+			}
+
+			&:hover {
+				background: $gray;
+			}
+		}
+
+		@media (max-width: $desktop) {
+			.toggle-aside {
+				display: block;
+			}
+		}
+	}
+
+	.main-content {
+		flex-grow: 1;
+	}
+}
