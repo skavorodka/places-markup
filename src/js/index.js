@@ -1,4 +1,6 @@
 import 'slick-carousel'
+import 'selectize'
+import ymaps from 'ymaps';
 import '@fortawesome/fontawesome-free/js/fontawesome'
 import '@fortawesome/fontawesome-free/js/solid'
 import '@fortawesome/fontawesome-free/js/regular'
@@ -9,85 +11,142 @@ import '@fortawesome/fontawesome-free/js/brands'
 
 $(function() {
 
-    $('.phone-input').mask('+7 (999) 999-99-99');
+    let isMapVisible = false,
+        transitionSpeed = 300;
 
-    $('.promo-slider').slick({
-        slidesToShow: 2,
-        responsive: [
-            {
-                breakpoint: 992,
-                settings: {
-                    slidesToShow: 1,
-                }
-            },
-        ],
-        prevArrow: '<button type="button" class="slick-prev"><svg width="7" height="12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.38 1.238L1.62 6l4.762 4.762" stroke="#fff"/></svg></button>',
-        nextArrow: '<button type="button" class="slick-next"><svg width="7" height="12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M.62 1.238L5.38 6 .619 10.762" stroke="#fff"/></svg></button>',
+    // Sticky header
+
+    let $stickyHeader = $('.sticky-header'),
+        $toggleAside = $('.aside-left aside .toggle-aside'),
+        $aside = $('aside'),
+        $overlay = $('#overlay');
+
+    $(window).on('scroll', function () {
+        toggleStickyHeader();
     });
 
-    $('.clients-slider').slick({
-        slidesToShow: 7,
-        infinite: true,
-        arrows: false,
-        autoplay: true,
-        responsive: [
-            {
-                breakpoint: 992,
-                settings: {
-                    slidesToShow: 5,
-                }
-            },
-            {
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 3,
-                }
-            },
-            {
-                breakpoint: 576,
-                settings: {
-                    slidesToShow: 2,
-                }
-            },
-        ],
-    }).on('setPosition', function (event, slick) {
-        slick.$slides.css('height', slick.$slideTrack.height() + 'px');
+    toggleStickyHeader();
+
+    function toggleStickyHeader() {
+        if ($(window).scrollTop() >= 200) {
+            $stickyHeader.addClass('visible');
+            $toggleAside.addClass('visible');
+        } else {
+            if (!isMapVisible) {
+                $stickyHeader.removeClass('visible');
+                $toggleAside.removeClass('visible');
+                $aside.removeClass('open');
+                $overlay.removeClass('visible');
+
+                setTimeout(function () {
+                    $aside.find('.wrapper').scrollTop(0);
+                }, transitionSpeed);
+            }
+        }
+    }
+
+    $toggleAside.click(function() {
+        toggleAside();
     });
 
-    $('.burger').click(function() {
-        $(this).toggleClass('active');
-        $('.aside-menu-overlay').toggleClass('active');
-        $('.aside-menu').toggleClass('active');
-    });
+    function toggleAside() {
+        $aside.toggleClass('open');
+        $overlay.toggleClass('visible');
+    }
 
-    // popup
-    let overlay = $('#overlay'),
-        modals = $('.modal'),
-        modalLink = $('a.popup-link'),
-        modalClose = modals.find('a.close');
+    // Top menu
 
-    modalLink.click(function() {
-        overlay.addClass('active');
-        $($(this).attr('href')).addClass('active');
+    $('.sticky-header .menu, .sticky-header .menu .overlay > a').click(function() {
+        toggleTopMenu();
         return false;
     });
 
-    modalClose.click(function() {
-        modals.removeClass('active');
-        overlay.removeClass('active');
-        return false;
+    function toggleTopMenu() {
+        $('.sticky-header .menu').toggleClass('open');
+    }
+
+    // Misc
+
+    // $('.chosen-select').chosen({
+    // 	no_results_text: 'Ничего не найдено',
+    // 	width: '100%'
+    // });
+
+    $('.chosen-select').selectize({
+        render: {
+            option: function(data, escape) {
+                console.log(data);
+                return '<div class="option">' + escape(data.text) + '<span>' + data.total + '</span></div>';
+            },
+        }
     });
 
-    overlay.click(function() {
-        modals.removeClass('active');
-        overlay.removeClass('active');
-        return false;
+    // Places map
+    ymaps.load('https://api-maps.yandex.ru/2.1/?apikey=29e898fe-24cc-4ef2-b717-acae9666bf9e&lang=ru_RU').then(maps => {
+        let myMap = new maps.Map('places-map', {
+            center: [59.939095, 30.315868],
+            zoom: 12,
+            controls: []
+        });
+
+        myMap.controls.add('zoomControl', {position: {top: 200, left: 10}});
+
+        let $toggleMap = $('.toggle-map, #places-map-cont .btn-close, .main-filter .on-map'),
+            $placesMapCont = $('#places-map-cont');
+
+        $toggleMap.click(function() {
+            toggleMap();
+        });
+
+        let clusterer = new maps.Clusterer({
+                preset: 'islands#violetClusterIcons',
+                groupByCoordinates: false,
+            }),
+            geoObjects = [];
+
+        for (var i = 0; i < 100; i++) {
+            let longitude = getRandomInt(59831453, 60039231) / 1000000,
+                latitude = getRandomInt(29976432, 30516135) / 1000000;
+
+            let myPlacemark = new maps.Placemark([longitude, latitude], {
+                hintContent: 'Собственный значок метки',
+                balloonContent: 'Это красивая метка'
+            }, {
+                iconLayout: 'default#image',
+                iconImageHref: 'assets/img/marker.png',
+                iconImageSize: [37, 48],
+                iconImageOffset: [-18, -48]
+            });
+
+            geoObjects.push(myPlacemark);
+        }
+
+        clusterer.add(geoObjects);
+        myMap.geoObjects.add(clusterer);
+
+        // myMap.setBounds(clusterer.getBounds(), {
+        // 	checkZoomRange: true
+        // });
+
+        function toggleMap() {
+            if ($placesMapCont.hasClass('visible')) {
+                $placesMapCont.removeClass('visible');
+                $toggleMap.find('span').text('Показать карту кальянных');
+                toggleStickyHeader();
+                isMapVisible = false;
+            } else {
+                $placesMapCont.addClass('visible');
+                $toggleMap.find('span').text('Скрыть карту кальянных');
+                $stickyHeader.addClass('visible');
+                myMap.container.fitToViewport();
+                isMapVisible = true;
+            }
+            toggleStickyHeader();
+        }
     });
 
-    // accordion
-    $('.accordion .opener').click(function() {
-       $(this).toggleClass('active');
-        $(this).next().slideToggle();
-    });
+    function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
+    }
 
 });

@@ -124,3 +124,24 @@ ul, ol {
 	/*border-left: 1px solid #ECF0F1;*/
 	/*border-right: 1px solid #ECF0F1;*/
 }
+
+main {
+	padding: 30px 0;
+	-webkit-box-flex: 1;
+	-ms-flex: 1 0 auto;
+	flex: 1 0 auto;
+}
+
+.main-content {
+
+	h1 {
+		font-size: 30px;
+		line-height: 38px;
+		margin-bottom: 20px;
+		font-weight: normal;
+	}
+
+	p {
+		margin-bottom: 1em;
+	}
+}

@@ -1,0 +1,42 @@
+.votes {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: #000;
+
+	span {
+		font-size: 14px;
+		display: inline-block;
+		margin: 0 10px;
+		width: 35px;
+		text-align: center;
+	}
+
+	.vote-down,
+	.vote-up {
+		width: 0;
+		height: 0;
+		border-style: solid;
+		transition: $transition;
+	}
+
+	.vote-down {
+		border-width: 10px 7.5px 0;
+		border-color: $gray-dark transparent transparent transparent;
+
+		&:hover,
+		&.active {
+			border-color: $purple transparent transparent transparent;
+		}
+	}
+
+	.vote-up {
+		border-width: 0 7.5px 10px;
+		border-color: transparent transparent $gray-dark transparent;
+
+		&:hover,
+		&.active {
+			border-color: transparent transparent $purple transparent;
+		}
+	}
+}

@@ -1,0 +1,88 @@
+.reviews {
+	margin-bottom: 50px;
+
+	h2 {
+		font-size: 30px;
+		line-height: 38px;
+		margin-bottom: 20px;
+		font-weight: normal;
+	}
+
+	.item {
+		background: $gray;
+		border: 1px solid $gray-border;
+		margin-bottom: 20px;
+		display: flex;
+		justify-content: space-between;
+
+		@media (max-width: $tablet) {
+			flex-wrap: wrap;
+		}
+
+		.author {
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-around;
+			text-align: center;
+			padding: 30px 40px;
+			border-right: 1px solid $gray-border;
+
+			@media (max-width: $laptop) {
+				padding: 30px 20px;
+
+				.author {
+					border-right: none;
+				}
+			}
+
+			@media (max-width: $tablet) {
+				padding: 30px 40px;
+			}
+
+			img {
+				margin-bottom: 15px;
+			}
+
+			h4 {
+				font-family: $FuturaDemi;
+				line-height: 32px;
+			}
+
+			p {
+				font-size: 14px;
+				color: $gray-dark;
+				margin-bottom: 0;
+			}
+		}
+
+		.main {
+			padding: 25px 20px;
+
+			.top {
+				display: flex;
+				justify-content: space-between;
+				margin-bottom: 15px;
+
+				h4 {
+					font-size: 25px;
+					font-weight: normal;
+				}
+
+				.rating {
+					display: inline-block;
+					font-size: 30px;
+				}
+			}
+
+			.bottom {
+				display: flex;
+				justify-content: space-between;
+
+				.date {
+					color: $gray-dark;
+				}
+			}
+		}
+	}
+}

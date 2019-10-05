@@ -48,6 +48,8 @@
 	},
 	"dependencies": {
 		"jquery": "^3.4.1",
-		"slick-carousel": "^1.8.1"
+		"selectize": "^0.12.6",
+		"slick-carousel": "^1.8.1",
+		"ymaps": "^0.2.1"
 	}
 }

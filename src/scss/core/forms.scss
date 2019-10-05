@@ -1,0 +1,75 @@
+.checkbox-row {
+	color: $gray-dark;
+	margin-bottom: 15px;
+	transition: 300ms;
+
+	&:hover {
+		color: #000;
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+
+	label {
+		display: flex;
+		justify-content: space-between;
+		cursor: pointer;
+		position: relative;
+
+		input {
+			position: absolute;
+			opacity: 0;
+			cursor: pointer;
+			height: 0;
+			width: 0;
+
+			&:checked {
+				& + span,
+				& + span + small {
+					color: #000;
+				}
+
+				& + span::before {
+					background: $yellow;
+					border-color: $yellow;
+				}
+
+				& + span::after {
+					background: url(../img/tick.svg);
+				}
+			}
+		}
+
+		span {
+			flex-grow: 1;
+			padding-left: 38px;
+
+			&::before {
+				content: '';
+				position: absolute;
+				top: 50%;
+				left: 0;
+				transform: translateY(-50%);
+				display: block;
+				width: 16px;
+				height: 16px;
+				border: 1px solid $purple-light;
+				transition: $transition;
+				border-radius: 2px;
+			}
+
+			&::after {
+				content: '';
+				position: absolute;
+				top: 50%;
+				left: 5px;
+				transform: translateY(-50%);
+				display: block;
+				width: 8px;
+				height: 8px;
+				transition: $transition;
+			}
+		}
+	}
+}

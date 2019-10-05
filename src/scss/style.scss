@@ -1,5 +1,6 @@
 @import "~slick-carousel/slick/slick.css";
 @import "~slick-carousel/slick/slick-theme.css";
+@import "~selectize/dist/css/selectize.default.css";
 @import "core/slick.scss";
 
 @import "core/variables.scss";
@@ -18,3 +19,10 @@
 @import "includes/favorites.scss";
 @import "includes/footer.scss";
 @import "includes/aside.scss";
+@import "includes/top-banner.scss";
+@import "includes/sticky-header.scss";
+@import "includes/places.scss";
+@import "includes/reviews.scss";
+@import "includes/votes.scss";
+@import "includes/pagination.scss";
+@import "includes/selectize.scss";

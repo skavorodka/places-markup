@@ -1,0 +1,75 @@
+img.responsive {
+	display: block;
+	margin: 0 auto;
+	max-width: 100%;
+}
+
+.box {
+	background: $gray;
+	margin-bottom: 20px;
+	border-radius: 5px;
+
+	.heading {
+		background: $gray-heading;
+		padding: 20px;
+		border-top-left-radius: 5px;
+		border-top-right-radius: 5px;
+
+		h3 {
+			font-size: 25px;
+			color: $purple;
+			margin-bottom: 5px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+
+			a {
+				font-size: initial;
+				font-weight: normal;
+				color: $blue;
+				border-bottom: 1px solid transparent;
+				transition: $transition;
+
+				&:hover {
+					border-bottom: 1px solid $blue;
+				}
+			}
+		}
+
+		p {
+			margin-bottom: 0;
+		}
+	}
+
+	.body {
+		padding: 20px;
+	}
+}
+
+
+.visible-mobile {
+	display: none;
+
+	@media (max-width: $tablet) {
+		display: block;
+	}
+}
+
+@media (max-width: $tablet) {
+	display: none;
+}
+
+.hidden-desktop {
+	display: none;
+
+	@media (max-width: $desktop) {
+		display: block;
+	}
+}
+
+.visible-desktop {
+
+	@media (max-width: $desktop) {
+		display: none;
+	}
+}

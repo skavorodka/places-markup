@@ -1,0 +1,15 @@
+.sticky-header
+    .container
+        a.logo(href="/")
+            img(src="img/logo2.png", srcset="img/logo2@2x.png 2x", alt="Кальянные.рф")
+        .menu
+            <svg width="20" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 15a1 1 0 0 1 1-1h8a1 1 0 1 1 0 2H1a1 1 0 0 1-1-1zM0 1a1 1 0 0 1 1-1h18a1 1 0 1 1 0 2H1a1 1 0 0 1-1-1zM0 8a1 1 0 0 1 1-1h18a1 1 0 1 1 0 2H1a1 1 0 0 1-1-1z" fill="#fff"/></svg>
+            span Меню
+            .overlay
+                a(href="#")
+                    <svg width="20" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 15a1 1 0 0 1 1-1h18a1 1 0 1 1 0 2H1a1 1 0 0 1-1-1zM0 1a1 1 0 0 1 1-1h18a1 1 0 1 1 0 2H1a1 1 0 0 1-1-1zM0 8a1 1 0 0 1 1-1h18a1 1 0 1 1 0 2H1a1 1 0 0 1-1-1z" fill="#5B114E"/></svg>
+                    | Меню
+                include nav.pug
+        include toggle-map.pug
+        include search.pug
+        include favorites.pug
