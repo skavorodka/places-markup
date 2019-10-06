@@ -7,10 +7,7 @@
 	display: flex;
 
 	aside {
-		top: 0;
-		width: 262px;
 		background: #fff;
-		left: -262px;
 		transition: $transition;
 		margin-right: 20px;
 		z-index: 1;
@@ -27,6 +24,9 @@
 			position: fixed;
 			margin-right: 0;
 			z-index: 6;
+			width: 262px;
+			left: -262px;
+			top: 0;
 
 			.wrapper {
 				overflow-y: scroll;
