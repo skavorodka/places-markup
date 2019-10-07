@@ -71,7 +71,17 @@ module.exports = {
 			filename: './css/[name].[hash].css',
 		}),
 		new HtmlWebpackPlugin({
-			template: './src/html/index.pug'
+			template: './src/html/index.pug',
+			minify: {
+				removeScriptTypeAttributes: true,
+			},
+		}),
+		new HtmlWebpackPlugin({
+			filename: 'card.html',
+			template: './src/html/card.pug',
+			minify: {
+				removeScriptTypeAttributes: true,
+			},
 		}),
 		new CopyWebpackPlugin([
 			{

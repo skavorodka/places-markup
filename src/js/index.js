@@ -113,7 +113,7 @@ $(function() {
                 balloonContent: 'Это красивая метка'
             }, {
                 iconLayout: 'default#image',
-                iconImageHref: 'assets/img/marker.png',
+                iconImageHref: 'img/marker.png',
                 iconImageSize: [37, 48],
                 iconImageOffset: [-18, -48]
             });

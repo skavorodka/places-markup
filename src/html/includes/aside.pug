@@ -1,11 +1,18 @@
-aside
-    button.btn.btn-default.toggle-aside
-        <svg width="20" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 15a1 1 0 0 1 1-1h18a1 1 0 1 1 0 2H1a1 1 0 0 1-1-1zM0 1a1 1 0 0 1 1-1h18a1 1 0 1 1 0 2H1a1 1 0 0 1-1-1zM0 8a1 1 0 0 1 1-1h18a1 1 0 1 1 0 2H1a1 1 0 0 1-1-1z" fill="#000"/></svg>
-    .wrapper
-        form.aside-filters(action="#")
-            include aside/main-filter
-            include aside/comforts-filter
-        .visible-desktop
-            include aside/top-items
-            include aside/news
-            include aside/articles
+mixin aside(blocks)
+    aside
+        button.btn.btn-default.toggle-aside
+            <svg width="20" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 15a1 1 0 0 1 1-1h18a1 1 0 1 1 0 2H1a1 1 0 0 1-1-1zM0 1a1 1 0 0 1 1-1h18a1 1 0 1 1 0 2H1a1 1 0 0 1-1-1zM0 8a1 1 0 0 1 1-1h18a1 1 0 1 1 0 2H1a1 1 0 0 1-1-1z" fill="#000"/></svg>
+        .wrapper
+            if blocks.includes('filters')
+                form.aside-filters(action="#")
+                    include aside/main-filter
+                    include aside/comforts-filter
+            .visible-desktop
+                if blocks.includes('newPlaces')
+                    include aside/new-places
+                if blocks.includes('topItems')
+                    include aside/top-items
+                if blocks.includes('news')
+                    include aside/news
+                if blocks.includes('articles')
+                    include aside/articles

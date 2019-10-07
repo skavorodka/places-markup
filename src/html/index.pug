@@ -7,8 +7,9 @@ html(lang="ru")
 		main
 			.container
 				include includes/top-banner
-				.aside-left
+				.aside-cont.left
 					include includes/aside
+					+aside(['filters', 'topItems', 'news', 'articles'])
 					.main-content
 						include includes/places
 						include includes/reviews
@@ -21,5 +22,6 @@ html(lang="ru")
 							include includes/aside/top-items
 							include includes/aside/news
 							include includes/aside/articles
+		include includes/places-map
 		include core/footer
 		include core/bottom
