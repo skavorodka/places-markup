@@ -4,12 +4,14 @@ html(lang="ru")
         include core/header
         include core/sticky-header
         include core/top-bar
+        include core/breadcrumbs
         main
             .container
                 .aside-cont.right
                     include includes/aside
                     +aside(['newPlaces', 'topItems', 'news'])
                     .main-content
+                        include includes/places/description
                         include includes/reviews
                         h1 Кальянные Санкт-Петербурга (Спб)
                         p Санкт - Петербург предлагает ценителям дымных ароматов множество различных кальянных, некоторые из которых уникальны в своём роде. Гости могут найти кафе, бары, рестораны и lounge- пространства с кальяном в любом районе Петербурга.
@@ -17,9 +19,9 @@ html(lang="ru")
                         p Портал Кальянные.рф собрал в себе информацию обо всех кальянных СПб. Используя навигацию, Вы легко сможете подобрать заведение по своему вкусу, прочитать о нём отзывы, чтобы составить первое впечатление, и забронировать столик через нашу форму бронирования.
                         p Кальянные.рф – Ваш гид в мире кальянов!
                         .hidden-desktop
+                            include includes/aside/new-places
                             include includes/aside/top-items
                             include includes/aside/news
-                            include includes/aside/articles
         include includes/places-map
         include core/footer
         include core/bottom

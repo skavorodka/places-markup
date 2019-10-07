@@ -9,6 +9,10 @@ img.responsive {
 	margin-bottom: 20px;
 	border-radius: 5px;
 
+	&.padding {
+		padding: 20px;
+	}
+
 	.heading {
 		background: $gray-heading;
 		padding: 20px;

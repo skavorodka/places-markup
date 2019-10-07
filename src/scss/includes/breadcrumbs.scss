@@ -1,0 +1,33 @@
+.breadcrumbs {
+	background: $gray-border;
+	padding: 20px 0;
+
+	a {
+		padding-right: 10px;
+		margin-right: 10px;
+		transition: $transition;
+
+		&:after {
+			content: '/';
+			right: -10px;
+			position: relative;
+		}
+
+		&:last-child {
+			padding-right: 0;
+			margin-right: 0;
+
+			&:after {
+				content: '';
+			}
+		}
+
+		&:hover {
+			color: $blue;
+
+			&:after {
+				color: #000;
+			}
+		}
+	}
+}

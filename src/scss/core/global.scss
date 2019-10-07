@@ -112,8 +112,17 @@ a {
 	}
 }
 
-ul, ol {
+ul {
 	list-style: none;
+
+	li {
+		margin-bottom: 10px;
+
+		&:before {
+			content: "• ";
+			color: $purple;
+		}
+	}
 }
 
 .container {
