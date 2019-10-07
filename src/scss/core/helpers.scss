@@ -26,16 +26,16 @@ img.responsive {
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
+			font-family: $FuturaDemi;
 
 			a {
 				font-size: initial;
 				font-weight: normal;
 				color: $blue;
-				border-bottom: 1px solid transparent;
-				transition: $transition;
+				text-decoration: underline;
 
 				&:hover {
-					border-bottom: 1px solid $blue;
+					text-decoration: none;
 				}
 			}
 		}
@@ -48,8 +48,33 @@ img.responsive {
 	.body {
 		padding: 20px;
 	}
+
+	a {
+		transition: $transition;
+
+		&:hover {
+			color: $blue;
+		}
+	}
 }
 
+.two-cols {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 30px;
+
+	> * {
+		flex-basis: calc(50% - 10px);
+	}
+
+	@media (max-width: $laptop) {
+		flex-wrap: wrap;
+
+		> * {
+			flex-basis: 100%;
+		}
+	}
+}
 
 .visible-mobile {
 	display: none;

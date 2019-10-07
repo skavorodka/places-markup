@@ -1,0 +1,71 @@
+.place-ratings {
+
+	h3 {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+
+		svg {
+			fill: $yellow;
+			margin-right: 10px;
+			margin-left: 20px;
+		}
+
+		a {
+			font-size: initial;
+			font-weight: normal;
+			color: $blue;
+			text-decoration: underline;
+
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	}
+
+	.rating-item {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: 30px;
+
+		.stars {
+
+			span {
+				display: inline-block;
+				width: 140px;
+				font-size: 20px;
+				line-height: 150%;
+				margin-right: 20px;
+			}
+
+			svg {
+				fill: $gray-border;
+
+				&.active {
+					fill: $yellow;
+				}
+
+				@media (max-width: $tablet) {
+					display: none;
+				}
+			}
+		}
+
+		.circle-rating {
+			border: 2px solid $yellow;
+			border-radius: 50%;
+			width: 70px;
+			height: 70px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			span {
+				font-size: 30px;
+				line-height: 150%;
+			}
+		}
+	}
+}

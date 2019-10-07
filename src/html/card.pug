@@ -11,6 +11,9 @@ html(lang="ru")
                     include includes/aside
                     +aside(['newPlaces', 'topItems', 'news'])
                     .main-content
+                        .two-cols
+                            include includes/places/contacts
+                            include includes/places/ratings
                         include includes/places/description
                         include includes/reviews
                         h1 Кальянные Санкт-Петербурга (Спб)

@@ -1,0 +1,36 @@
+.place-contacts {
+
+	.contact-item {
+		padding-left: 75px;
+		margin-bottom: 30px;
+		min-height: 53px;
+
+		&.address {
+			background: url(../img/map.svg) no-repeat left top;
+		}
+
+		&.metro {
+			background: url(../img/metro.svg) no-repeat left top;
+		}
+
+		&.phone {
+			background: url(../img/phone.svg) no-repeat left top;
+		}
+
+		&.open-time {
+			background: url(../img/clock.svg) no-repeat left top;
+		}
+
+		&.website {
+			background: url(../img/website.svg) no-repeat left top;
+		}
+
+		strong {
+			display: block;
+		}
+
+		span {
+			display: block;
+		}
+	}
+}

@@ -2,5 +2,13 @@
 
 	ul {
 		column-count: 4;
+
+		@media (max-width: $laptop) {
+			column-count: 3;
+		}
+
+		@media (max-width: $tablet) {
+			column-count: 1;
+		}
 	}
 }

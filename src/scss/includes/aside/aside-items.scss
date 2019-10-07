@@ -10,7 +10,7 @@
 		h3 {
 			font-size: 20px;
 			font-weight: normal;
-			margin: 10px 0;
+			margin: 0 0 10px;
 
 			a {
 				transition: $transition;
@@ -21,10 +21,14 @@
 			}
 		}
 
+		p {
+			margin-bottom: 10px;
+		}
+
 		small {
 			display: block;
-			margin-top: 10px;
 			color: $gray-dark;
+			line-height: 18px;
 		}
 	}
 }
