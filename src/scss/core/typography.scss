@@ -3,6 +3,13 @@ h3 {
 	font-size: 30px;
 	line-height: 38px;
 	margin-bottom: 20px;
+
+	small {
+		display: inline-block;
+		margin-left: 30px;
+		font-size: 16px;
+		line-height: 150%;
+	}
 }
 
 h5 {

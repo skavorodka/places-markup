@@ -75,8 +75,15 @@ $(function() {
     $('.chosen-select').selectize({
         render: {
             option: function(data, escape) {
-                console.log(data);
                 return '<div class="option">' + escape(data.text) + '<span>' + data.total + '</span></div>';
+            },
+        }
+    });
+
+    $('.select').selectize({
+        render: {
+            option: function(data, escape) {
+                return '<div class="option">' + escape(data.text) + '</div>';
             },
         }
     });

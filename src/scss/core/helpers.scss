@@ -9,6 +9,11 @@ img.responsive {
 	margin-bottom: 20px;
 	border-radius: 5px;
 
+	&.purple {
+		background: $purple;
+		color: #fff;
+	}
+
 	&.padding {
 		padding: 20px;
 	}
@@ -30,7 +35,7 @@ img.responsive {
 
 			a {
 				font-size: initial;
-				font-weight: normal;
+				font-family: $Futura;
 				color: $blue;
 				text-decoration: underline;
 
@@ -56,6 +61,12 @@ img.responsive {
 			color: $blue;
 		}
 	}
+}
+
+.flex-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .two-cols {
