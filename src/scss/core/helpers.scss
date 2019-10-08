@@ -72,7 +72,6 @@ img.responsive {
 .two-cols {
 	display: flex;
 	justify-content: space-between;
-	margin-bottom: 30px;
 
 	> * {
 		flex-basis: calc(50% - 10px);

@@ -88,6 +88,21 @@ $(function() {
         }
     });
 
+    $('.big-images').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        fade: true,
+        asNavFor: '.small-images'
+    });
+
+    $('.small-images').slick({
+        slidesToShow: 7,
+        slidesToScroll: 1,
+        asNavFor: '.big-images',
+        focusOnSelect: true
+    });
+
     // Places map
     ymaps.load('https://api-maps.yandex.ru/2.1/?apikey=29e898fe-24cc-4ef2-b717-acae9666bf9e&lang=ru_RU').then(maps => {
         let myMap = new maps.Map('places-map', {
