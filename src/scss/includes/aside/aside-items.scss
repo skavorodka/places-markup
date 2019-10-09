@@ -1,5 +1,14 @@
 .aside-items {
 
+	.body {
+
+		@media (max-width: $desktop) {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+	}
+
 	.item {
 		margin-bottom: 20px;
 
@@ -31,6 +40,14 @@
 			line-height: 18px;
 			margin-left: 0;
 		}
+
+		@media (max-width: $desktop) {
+			width: calc(100% / 3 - 15px);
+		}
+
+		@media (max-width: $tablet) {
+			width: 100%;
+		}
 	}
 }
 
@@ -44,11 +61,8 @@
 
 	.item {
 		width: calc(100% / 3 - 15px);
-	}
 
-	@media (max-width: $tablet) {
-
-		.item {
+		@media (max-width: $tablet) {
 			width: 100%;
 		}
 	}

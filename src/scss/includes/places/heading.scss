@@ -6,6 +6,10 @@
 		justify-content: space-between;
 		align-items: center;
 		margin-bottom: 15px;
+
+		@media (max-width: $tablet) {
+			flex-wrap: wrap;
+		}
 	}
 
 	.heading {
@@ -14,15 +18,27 @@
 		font-size: 30px;
 		line-height: 46px;
 
+		h1 {
+			margin-bottom: 0;
+		}
+
 		svg {
 			fill: $yellow;
 			margin-right: 10px;
 			margin-left: 20px;
 		}
-	}
 
-	h1 {
-		margin-bottom: 0;
+		@media (max-width: $desktop) {
+			flex-wrap: wrap;
+
+			h1 {
+				width: 100%;
+			}
+
+			svg {
+				margin-left: 0;
+			}
+		}
 	}
 
 	.toggle-mode {
@@ -50,6 +66,10 @@
 			svg {
 				margin-right: 10px;
 			}
+		}
+
+		@media (max-width: $tablet) {
+			flex-wrap: wrap;
 		}
 	}
 }

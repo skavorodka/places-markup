@@ -101,7 +101,21 @@ $(function() {
             slidesToShow: 7,
             slidesToScroll: 1,
             asNavFor: '.big-images',
-            focusOnSelect: true
+            focusOnSelect: true,
+            responsive: [
+                {
+                    breakpoint: 767,
+                    settings: {
+                        slidesToShow: 5,
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 3,
+                    }
+                }
+            ]
         });
     }
 
