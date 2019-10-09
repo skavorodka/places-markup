@@ -88,20 +88,24 @@ $(function() {
         }
     });
 
-    $('.big-images').slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: false,
-        fade: true,
-        asNavFor: '.small-images'
-    });
+    function initPlaceSlider() {
+        $('.big-images').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: false,
+            fade: true,
+            asNavFor: '.small-images'
+        });
 
-    $('.small-images').slick({
-        slidesToShow: 7,
-        slidesToScroll: 1,
-        asNavFor: '.big-images',
-        focusOnSelect: true
-    });
+        $('.small-images').slick({
+            slidesToShow: 7,
+            slidesToScroll: 1,
+            asNavFor: '.big-images',
+            focusOnSelect: true
+        });
+    }
+
+    initPlaceSlider();
 
     // Places map
     ymaps.load('https://api-maps.yandex.ru/2.1/?apikey=29e898fe-24cc-4ef2-b717-acae9666bf9e&lang=ru_RU').then(maps => {
@@ -165,6 +169,50 @@ $(function() {
             }
             toggleStickyHeader();
         }
+
+
+        /////////////////////////////////////////////////////////////////////
+
+        $('#place-map').height($('.place-slider').height());
+
+        let placeMap = new maps.Map('place-map', {
+            center: [59.939095, 30.315868],
+            zoom: 12,
+            controls: []
+        });
+
+        let longitude = 59.939095,
+            latitude = 30.315868;
+
+        let myPlacemark = new maps.Placemark([longitude, latitude], {
+            hintContent: 'Собственный значок метки',
+            balloonContent: 'Это красивая метка'
+        }, {
+            iconLayout: 'default#image',
+            iconImageHref: 'img/marker.png',
+            iconImageSize: [37, 48],
+            iconImageOffset: [-18, -48]
+        });
+
+        placeMap.geoObjects.add(myPlacemark);
+
+        $('.toggle-mode').each(function() {
+            let $buttons = $(this).find('button');
+
+            $buttons.click(function () {
+                $buttons.removeClass('btn-primary').addClass('btn-default');
+                $(this).removeClass('btn-default').addClass('btn-primary');
+
+                if ($(this).hasClass('slider')) {
+                    $('.place-slider').show();
+                    $('#place-map').hide();
+                    initPlaceSlider();
+                } else {
+                    $('.place-slider').hide();
+                    $('#place-map').show();
+                }
+            });
+        });
     });
 
     function getRandomInt(min, max) {
