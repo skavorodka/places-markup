@@ -9,6 +9,11 @@ h3 {
 		margin-left: 30px;
 		font-size: 16px;
 		line-height: 150%;
+
+		@media (max-width: $tablet) {
+			display: block;
+			margin-left: 0;
+		}
 	}
 }
 

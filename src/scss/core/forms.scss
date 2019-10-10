@@ -27,6 +27,24 @@ form {
 				}
 			}
 		}
+
+		@media (max-width: $tablet) {
+			flex-wrap: wrap;
+
+			.form-row {
+				width: 100%;
+				margin-bottom: 15px;
+
+				&,
+				&:first-child,
+				&:last-child {
+
+					input, button, .select.single .selectize-input {
+						border-radius: 5px;
+					}
+				}
+			}
+		}
 	}
 
 	.form-row {
