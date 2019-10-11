@@ -10,22 +10,20 @@ html(lang="ru")
             .container
                 .aside-cont.right
                     include includes/aside
-                    +aside(['newPlaces', 'topItems', 'news'])
+                    +aside(['news', 'topItems'])
                     .main-content
-                        include includes/places/heading
-                        include includes/places/slider
-                        include includes/places/map
-                        include includes/places/booking-form
-                        .two-cols
-                            include includes/places/contacts
-                            include includes/places/ratings
-                        include includes/places/description
-                        include includes/places/reviews
-                        include includes/places/similar
+                        include includes/heading
+                        +heading('DUFT Hookah Tobacco', '16 февр. 2019 г.')
+                        .content
+                            p Друзья, очень много вопросов о том, что же такое «Хулиган»? Расставим все точки:
+                            p Hooligan - это новый лимитированный вкус, созданный специально для Nuahule Group в поддержку выхода их нового продукта, кальяна с одноименным название «Хулиган».
+                            img.responsive(src="uploads/news-card.jpg", alt="")
+                            p Вкус представляет из себя микс из 3-х тропических фруктов. Приобрести его можно исключительно в магазинах и кальянных Nuahule Group и только ограниченный период времени.
+                            p Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях. При создании генератора мы использовали небезизвестный универсальный код речей. Текст генерируется абзацами случайным образом от двух до десяти предложений в абзаце, что позволяет сделать текст более привлекательным и живым для визуально-слухового восприятия.
+                            p По своей сути рыбатекст является альтернативой традиционному lorem ipsum, который вызывает у некторых людей недоумение при попытках прочитать рыбу текст. В отличии от lorem ipsum, текст рыба на русском языке наполнит любой макет непонятным смыслом и придаст неповторимый колорит советских времен.
                         .hidden-desktop
-                            include includes/aside/new-places
-                            include includes/aside/top-items
                             include includes/aside/news
+                            include includes/aside/top-items
         include includes/places-map
         include core/footer
         include core/bottom
