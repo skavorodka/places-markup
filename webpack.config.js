@@ -77,8 +77,22 @@ module.exports = {
 			},
 		}),
 		new HtmlWebpackPlugin({
-			filename: 'card.html',
-			template: './src/html/card.pug',
+			filename: 'place-card.html',
+			template: './src/html/place-card.pug',
+			minify: {
+				removeScriptTypeAttributes: true,
+			},
+		}),
+		new HtmlWebpackPlugin({
+			filename: 'news-list.html',
+			template: './src/html/news-list.pug',
+			minify: {
+				removeScriptTypeAttributes: true,
+			},
+		}),
+		new HtmlWebpackPlugin({
+			filename: 'news-card.html',
+			template: './src/html/news-card.pug',
 			minify: {
 				removeScriptTypeAttributes: true,
 			},

@@ -155,6 +155,10 @@ main {
 		margin-bottom: 1em;
 	}
 
+	> .hidden-desktop {
+		margin-top: 30px;
+	}
+
 	@media (max-width: $tablet){
 		width: 100%;
 	}

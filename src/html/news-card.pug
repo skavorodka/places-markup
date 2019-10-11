@@ -1,0 +1,31 @@
+html(lang="ru")
+    include core/head
+    body
+        include core/header
+        include core/sticky-header
+        include core/top-bar
+        include core/breadcrumbs
+        +breadcrumbs(['Главная', 'Новости', 'DUFT Hookah Tobacco'])
+        main
+            .container
+                .aside-cont.right
+                    include includes/aside
+                    +aside(['newPlaces', 'topItems', 'news'])
+                    .main-content
+                        include includes/places/heading
+                        include includes/places/slider
+                        include includes/places/map
+                        include includes/places/booking-form
+                        .two-cols
+                            include includes/places/contacts
+                            include includes/places/ratings
+                        include includes/places/description
+                        include includes/places/reviews
+                        include includes/places/similar
+                        .hidden-desktop
+                            include includes/aside/new-places
+                            include includes/aside/top-items
+                            include includes/aside/news
+        include includes/places-map
+        include core/footer
+        include core/bottom
