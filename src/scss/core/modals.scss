@@ -9,7 +9,7 @@
 	background-color: rgba(0, 0, 0, 0.85);
 	z-index: 10;
 	color: white;
-	transition: .4s;
+	transition: $transition;
 
 	&.active {
 		visibility: visible;

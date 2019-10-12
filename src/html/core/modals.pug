@@ -56,8 +56,21 @@
             .form-row
                 label Текст сообшения
                 textarea Расскажите, почему вам понравилось или не понравилось данное заведение
-            .form-row
+            .form-row.files-row
                 label Добавить фото
+                .files-list
+                    .file-item
+                        .overlay
+                        a.remove(href="")
+                            <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.066 6.066l12.132 12.132m0-12.132L6.066 18.198" stroke="#fff"/></svg>
+                        img.responsive(src="uploads/img-file.jpg")
+                    .file-item
+                        .overlay
+                        a.remove(href="")
+                            <svg width="25" height="25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.066 6.066l12.132 12.132m0-12.132L6.066 18.198" stroke="#fff"/></svg>
+                        img.responsive(src="uploads/img-file.jpg")
+                    .new-file
+                p Размер всех фото не должен привышать Мб, формат .jpg .jpeg. Минимальный размер 525x350.
         .form-row.checkbox-row
             label(for="reviews-rules")
                 input(type="checkbox", name="rules", id="reviews-rules")

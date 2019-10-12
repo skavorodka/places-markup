@@ -171,4 +171,81 @@ form {
 		}
 	}
 
+	.files-row {
+
+		p {
+			color: $gray-dark;
+		}
+
+		.files-list {
+			margin-bottom: 15px;
+			display: flex;
+			justify-content: space-between;
+
+			> * {
+				flex-basis: calc(100% / 3 - 5px);
+			}
+		}
+
+		.file-item {
+			height: 91px;
+			position: relative;
+
+			.overlay {
+				visibility: hidden;
+				opacity: 0;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0, 0, 0, 0.5);
+				z-index: 10;
+				transition: $transition;
+			}
+
+			a {
+				position: absolute;
+				display: none;
+				z-index: 11;
+
+				&:hover {
+
+					path {
+						stroke: $red;
+					}
+				}
+			}
+
+			.remove {
+				right: 5px;
+				top: 5px;
+			}
+
+			&:hover {
+
+				.overlay {
+					visibility: visible;
+					opacity: 1;
+				}
+
+				a {
+					display: block;
+				}
+			}
+		}
+
+		.new-file {
+			background: $gray url(../img/plus.svg) no-repeat center center;
+			border: 1px solid $gray-border;
+			border-radius: 5px;
+			height: 91px;
+			cursor: pointer;
+
+			&:hover {
+				opacity: .8;
+			}
+		}
+	}
+
 }
