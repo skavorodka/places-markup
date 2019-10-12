@@ -1,0 +1,11 @@
+.rating-stars {
+	white-space: nowrap;
+
+	svg {
+		fill: $gray-border;
+
+		&.active {
+			fill: $yellow;
+		}
+	}
+}

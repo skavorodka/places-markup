@@ -1,18 +1,16 @@
+include core/mixins
 html(lang="ru")
     include core/head
     body
         include core/header
         include core/sticky-header
         include core/top-bar
-        include core/breadcrumbs
         +breadcrumbs(['Главная', 'Новости'])
         main
             .container
                 .aside-cont
-                    include includes/aside
                     +aside(['topItems', 'articles'])
                     .main-content
-                        include includes/heading
                         +heading('Новости')
                         include includes/news-list
                         .hidden-desktop

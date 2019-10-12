@@ -1,18 +1,16 @@
+include core/mixins
 html(lang="ru")
     include core/head
     body
         include core/header
         include core/sticky-header
         include core/top-bar
-        include core/breadcrumbs
         +breadcrumbs(['Главная', 'Новости', 'DUFT Hookah Tobacco'])
         main
             .container
                 .aside-cont.right
-                    include includes/aside
                     +aside(['news', 'topItems'])
                     .main-content
-                        include includes/heading
                         +heading('DUFT Hookah Tobacco', '16 февр. 2019 г.')
                         .content
                             p Друзья, очень много вопросов о том, что же такое «Хулиган»? Расставим все точки:

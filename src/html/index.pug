@@ -1,3 +1,4 @@
+include core/mixins
 html(lang="ru")
 	include core/head
 	body
@@ -8,7 +9,6 @@ html(lang="ru")
 			.container
 				include includes/top-banner
 				.aside-cont.left
-					include includes/aside
 					+aside(['filters', 'topItems', 'news', 'articles'])
 					.main-content
 						include includes/places

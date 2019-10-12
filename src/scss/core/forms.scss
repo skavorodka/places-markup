@@ -178,9 +178,9 @@ form {
 		}
 
 		.files-list {
-			margin-bottom: 15px;
 			display: flex;
 			justify-content: space-between;
+			flex-wrap: wrap;
 
 			> * {
 				flex-basis: calc(100% / 3 - 5px);
@@ -189,7 +189,9 @@ form {
 
 		.file-item {
 			height: 91px;
+			max-width: 125px;
 			position: relative;
+			margin-bottom: 15px;
 
 			.overlay {
 				visibility: hidden;
@@ -240,6 +242,7 @@ form {
 			border: 1px solid $gray-border;
 			border-radius: 5px;
 			height: 91px;
+			max-width: 125px;
 			cursor: pointer;
 
 			&:hover {

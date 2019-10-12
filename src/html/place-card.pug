@@ -1,15 +1,14 @@
+include core/mixins
 html(lang="ru")
     include core/head
     body
         include core/header
         include core/sticky-header
         include core/top-bar
-        include core/breadcrumbs
         +breadcrumbs(['Главная', 'Кальянные', 'Кальянная Лаборатория WHITE SMOKE'])
         main
             .container
                 .aside-cont.right
-                    include includes/aside
                     +aside(['newPlaces', 'topItems', 'news'])
                     .main-content
                         include includes/places/heading
