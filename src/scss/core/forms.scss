@@ -48,16 +48,32 @@ form {
 	}
 
 	.form-row {
+		margin-bottom: 15px;
 
 		label {
 			margin-bottom: 10px;
 			display: block;
+			font-weight: bold;
 		}
 
-		input {
+		input, textarea {
 			width: 100%;
 			padding: 18px 20px;
 			border: 1px solid $gray-border;
+			border-radius: 5px;
+			transition: $transition;
+			font-family: $Futura;
+			font-size: 16px;
+			line-height: 150%;
+
+			&:focus {
+				background: $gray;
+			}
+		}
+
+		textarea {
+			height: 100px;
+			padding: 10px 20px;
 		}
 
 		button {
@@ -92,6 +108,7 @@ form {
 			justify-content: space-between;
 			cursor: pointer;
 			position: relative;
+			font-weight: normal;
 
 			input {
 				position: absolute;
@@ -146,6 +163,10 @@ form {
 					height: 8px;
 					transition: $transition;
 				}
+			}
+
+			a {
+				color: $blue;
 			}
 		}
 	}

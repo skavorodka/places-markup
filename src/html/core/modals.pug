@@ -1,0 +1,65 @@
+#overlay
+
+.modal#signup-modal
+    a.close(href="")
+        <svg width="42" height="42" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M31.113 10.607L10.607 31.113m19.799 0L9.9 10.607" stroke="gray" stroke-width="2"/></svg>
+    h3 Регистрация
+    form(action="", method="POST")
+        .form-row
+            input(type="text", placeholder="Ваше имя")
+        .form-row
+            input(type="email", placeholder="Ваш E-mail")
+        .form-row
+            input(type="password", placeholder="Ваш пароль")
+        .form-row.checkbox-row
+            label(for="signup-rules")
+                input(type="checkbox", name="rules", id="signup-rules")
+                span Я соглашаюсь с <a href="">пользовательским соглашением</a>
+        button.btn.btn-warning.btn-block.btn-upper Зарегистрироваться
+
+.modal#login-modal
+    a.close(href="")
+        <svg width="42" height="42" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M31.113 10.607L10.607 31.113m19.799 0L9.9 10.607" stroke="gray" stroke-width="2"/></svg>
+    h3 Вход
+    hr
+    p Через соцсети <small>(рекомендуем для новых покупателей)</small>
+    .social-links
+        div ВКонтакте
+        div Facebook
+        div Google
+        div Почта Mail.Ru
+    hr
+    p
+        | С помощью аккаунта
+        a.pull-right.popup-link(href="#signup-modal") Создать аккаунт
+    form(action="", method="POST")
+        .form-row
+            input(type="email", placeholder="Ваш E-mail")
+        .form-row
+            input(type="password", placeholder="Ваш пароль")
+        .form-row.checkbox-row
+            label(for="login-rules")
+                input(type="checkbox", name="rules", id="login-rules")
+                span Я соглашаюсь с <a href="">пользовательским соглашением</a>
+        button.btn.btn-warning.btn-upper Войти
+        button.btn.btn-default.btn-upper Забыли пароль?
+
+.modal.xl#reviews-modal
+    a.close(href="")
+        <svg width="42" height="42" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M31.113 10.607L10.607 31.113m19.799 0L9.9 10.607" stroke="gray" stroke-width="2"/></svg>
+    h3 Оставить отзыв
+    form(action="", method="POST")
+        .form-row
+            label Заголовок
+            input(type="text", placeholder="Опишите заголовок отзыва")
+        .two-cols
+            .form-row
+                label Текст сообшения
+                textarea Расскажите, почему вам понравилось или не понравилось данное заведение
+            .form-row
+                label Добавить фото
+        .form-row.checkbox-row
+            label(for="reviews-rules")
+                input(type="checkbox", name="rules", id="reviews-rules")
+                span Я соглашаюсь с <a href="">пользовательским соглашением</a>
+        button.btn.btn-warning.btn-upper Оставить отзыв

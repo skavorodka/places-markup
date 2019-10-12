@@ -125,6 +125,13 @@ ul {
 	}
 }
 
+hr {
+	border: none;
+	background: $gray-border;
+	height: 1px;
+	margin: 20px 0;
+}
+
 .container {
 	width: 100%;
 	max-width: 1200px;

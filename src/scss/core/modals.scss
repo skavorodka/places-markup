@@ -1,0 +1,95 @@
+#overlay {
+	visibility: hidden;
+	opacity: 0;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.85);
+	z-index: 10;
+	color: white;
+	transition: .4s;
+
+	&.active {
+		visibility: visible;
+		opacity: 1;
+	}
+}
+
+.modal {
+	visibility: hidden;
+	opacity: 0;
+	position: fixed;
+	top: 50px;
+	left: 50%;
+	z-index: 15;
+	background: #fff;
+	padding: 30px 50px;
+	transform: translate(-50%, -100px);
+	width: 90%;
+	max-width: 455px;
+	transition: .4s;
+
+	&.active {
+		visibility: visible;
+		opacity: 1;
+		transform: translate(-50%, 0);
+	}
+
+	&.xl {
+		max-width: 858px;
+	}
+
+	.close {
+		position: absolute;
+		right: 40px;
+		top: 30px;
+
+		&:hover {
+
+			path {
+				stroke: $red;
+			}
+		}
+	}
+
+	h3 {
+		font-size: 30px;
+		line-height: 38px;
+	}
+
+	p {
+		margin-bottom: 1em;
+	}
+
+	a {
+		color: $blue;
+	}
+
+	@media screen and (max-width: 576px) {
+		padding: 25px;
+
+		h3 {
+			font-size: 24px;
+		}
+	}
+}
+
+#login-modal {
+
+	.social-links {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+
+		div {
+			flex-basis: calc(50% - 5px);
+			margin-bottom: 10px;
+			background: $blue;
+			color: #fff;
+			padding: 10px;
+			text-align: center;
+		}
+	}
+}

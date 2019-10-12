@@ -81,20 +81,22 @@ header {
 		}
 	}
 
-	button {
-		margin-right: 20px;
+	.buttons {
+		button, a {
+			margin-right: 20px;
 
-		&:last-child {
-			margin-right: 0;
-		}
+			&:last-child {
+				margin-right: 0;
+			}
 
-		svg {
-			margin-left: 15px;
-		}
+			svg {
+				margin-left: 15px;
+			}
 
-		@media (max-width: $laptop) {
-			&:first-child {
-				display: none;
+			@media (max-width: $laptop) {
+				&:first-child {
+					display: none;
+				}
 			}
 		}
 	}
