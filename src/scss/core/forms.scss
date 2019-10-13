@@ -13,20 +13,28 @@ form {
 
 		.form-row {
 
-			input {
+			input[type="text"],
+			input[type="email"],
+			input[type="password"] {
 				border-radius: 0;
 			}
 
 			&:first-child {
 
-				input, button {
+				input[type="text"],
+				input[type="email"],
+				input[type="password"],
+				button {
 					border-radius: 5px 0 0 5px;
 				}
 			}
 
 			&:last-child {
 
-				input, button {
+				input[type="text"],
+				input[type="email"],
+				input[type="password"],
+				button {
 					border-radius: 0 5px 5px 0;
 				}
 			}
@@ -43,7 +51,11 @@ form {
 				&:first-child,
 				&:last-child {
 
-					input, button, .select.single .selectize-input {
+					input[type="text"],
+					input[type="email"],
+					input[type="password"],
+					button,
+					.select.single .selectize-input {
 						border-radius: 5px;
 					}
 				}
@@ -60,7 +72,10 @@ form {
 			font-weight: bold;
 		}
 
-		input, textarea {
+		input[type="text"],
+		input[type="email"],
+		input[type="password"],
+		textarea {
 			width: 100%;
 			padding: 18px 20px;
 			border: 1px solid $gray-border;
@@ -115,7 +130,9 @@ form {
 			position: relative;
 			font-weight: normal;
 
-			input {
+			input[type="text"],
+			input[type="email"],
+			input[type="password"] {
 				position: absolute;
 				opacity: 0;
 				cursor: pointer;

@@ -20,21 +20,29 @@
 		top: 10px;
 	}
 
-	.selectize-control.single .selectize-input {
-		background: #fff;
+	.selectize-control{
 		height: 45px;
-		padding: 10px 20px;
-		border-top-left-radius: 5px;
-		border-bottom-left-radius: 5px;
 
-		&.input-active {
-			.item {
-				margin-right: 10px;
-			}
+		&:after {
+			display: none;
 		}
 
-		.item {
-			margin-right: 15px;
+		&.single .selectize-input {
+			background: #fff;
+			height: 45px;
+			padding: 10px 20px;
+			border-top-left-radius: 5px;
+			border-bottom-left-radius: 5px;
+
+			&.input-active {
+				.item {
+					margin-right: 10px;
+				}
+			}
+
+			.item {
+				margin-right: 15px;
+			}
 		}
 	}
 
