@@ -88,6 +88,16 @@ $(function() {
         }
     });
 
+    $('select.simple').selectize({
+        persist: false,
+        create: false,
+        render: {
+            option: function(data, escape) {
+                return '<div class="option">' + escape(data.text) + '</div>';
+            },
+        }
+    });
+
     // popup
     let $modals = $('.modal'),
         $modalLink = $('a.popup-link'),
@@ -147,30 +157,82 @@ $(function() {
 
     // Places map
     ymaps.load('https://api-maps.yandex.ru/2.1/?apikey=29e898fe-24cc-4ef2-b717-acae9666bf9e&lang=ru_RU').then(maps => {
-        let myMap = new maps.Map('places-map', {
-            center: [59.939095, 30.315868],
-            zoom: 12,
-            controls: []
-        });
 
-        myMap.controls.add('zoomControl', {position: {top: 200, left: 10}});
+        if (document.getElementById('places-map')) {
+            let myMap = new maps.Map('places-map', {
+                center: [59.939095, 30.315868],
+                zoom: 12,
+                controls: []
+            });
 
-        let $toggleMap = $('.toggle-map, #places-map-cont .btn-close, .main-filter .on-map'),
-            $placesMapCont = $('#places-map-cont');
+            myMap.controls.add('zoomControl', {position: {top: 200, left: 10}});
 
-        $toggleMap.click(function() {
-            toggleMap();
-        });
+            let $toggleMap = $('.toggle-map, #places-map-cont .btn-close, .main-filter .on-map'),
+                $placesMapCont = $('#places-map-cont');
 
-        let clusterer = new maps.Clusterer({
-                preset: 'islands#violetClusterIcons',
-                groupByCoordinates: false,
-            }),
-            geoObjects = [];
+            $toggleMap.click(function() {
+                toggleMap();
+            });
 
-        for (var i = 0; i < 100; i++) {
-            let longitude = getRandomInt(59831453, 60039231) / 1000000,
-                latitude = getRandomInt(29976432, 30516135) / 1000000;
+            let clusterer = new maps.Clusterer({
+                    preset: 'islands#violetClusterIcons',
+                    groupByCoordinates: false,
+                }),
+                geoObjects = [];
+
+            for (var i = 0; i < 100; i++) {
+                let longitude = getRandomInt(59831453, 60039231) / 1000000,
+                    latitude = getRandomInt(29976432, 30516135) / 1000000;
+
+                let myPlacemark = new maps.Placemark([longitude, latitude], {
+                    hintContent: 'Собственный значок метки',
+                    balloonContent: 'Это красивая метка'
+                }, {
+                    iconLayout: 'default#image',
+                    iconImageHref: 'img/marker.png',
+                    iconImageSize: [37, 48],
+                    iconImageOffset: [-18, -48]
+                });
+
+                geoObjects.push(myPlacemark);
+            }
+
+            clusterer.add(geoObjects);
+            myMap.geoObjects.add(clusterer);
+
+            // myMap.setBounds(clusterer.getBounds(), {
+            // 	checkZoomRange: true
+            // });
+
+            function toggleMap() {
+                if ($placesMapCont.hasClass('visible')) {
+                    $placesMapCont.removeClass('visible');
+                    $toggleMap.find('span').text('Показать карту кальянных');
+                    toggleStickyHeader();
+                    isMapVisible = false;
+                } else {
+                    $placesMapCont.addClass('visible');
+                    $toggleMap.find('span').text('Скрыть карту кальянных');
+                    $stickyHeader.addClass('visible');
+                    myMap.container.fitToViewport();
+                    isMapVisible = true;
+                }
+                toggleStickyHeader();
+            }
+        }
+
+        /////////////////////////////////////////////////////////////////////
+        if (document.getElementById('place-map')) {
+            $('#place-map').height($('.place-slider').height());
+
+            let placeMap = new maps.Map('place-map', {
+                center: [59.939095, 30.315868],
+                zoom: 12,
+                controls: []
+            });
+
+            let longitude = 59.939095,
+                latitude = 30.315868;
 
             let myPlacemark = new maps.Placemark([longitude, latitude], {
                 hintContent: 'Собственный значок метки',
@@ -182,75 +244,26 @@ $(function() {
                 iconImageOffset: [-18, -48]
             });
 
-            geoObjects.push(myPlacemark);
-        }
+            placeMap.geoObjects.add(myPlacemark);
 
-        clusterer.add(geoObjects);
-        myMap.geoObjects.add(clusterer);
+            $('.toggle-mode').each(function() {
+                let $buttons = $(this).find('button');
 
-        // myMap.setBounds(clusterer.getBounds(), {
-        // 	checkZoomRange: true
-        // });
+                $buttons.click(function () {
+                    $buttons.removeClass('btn-primary').addClass('btn-default');
+                    $(this).removeClass('btn-default').addClass('btn-primary');
 
-        function toggleMap() {
-            if ($placesMapCont.hasClass('visible')) {
-                $placesMapCont.removeClass('visible');
-                $toggleMap.find('span').text('Показать карту кальянных');
-                toggleStickyHeader();
-                isMapVisible = false;
-            } else {
-                $placesMapCont.addClass('visible');
-                $toggleMap.find('span').text('Скрыть карту кальянных');
-                $stickyHeader.addClass('visible');
-                myMap.container.fitToViewport();
-                isMapVisible = true;
-            }
-            toggleStickyHeader();
-        }
-
-
-        /////////////////////////////////////////////////////////////////////
-
-        $('#place-map').height($('.place-slider').height());
-
-        let placeMap = new maps.Map('place-map', {
-            center: [59.939095, 30.315868],
-            zoom: 12,
-            controls: []
-        });
-
-        let longitude = 59.939095,
-            latitude = 30.315868;
-
-        let myPlacemark = new maps.Placemark([longitude, latitude], {
-            hintContent: 'Собственный значок метки',
-            balloonContent: 'Это красивая метка'
-        }, {
-            iconLayout: 'default#image',
-            iconImageHref: 'img/marker.png',
-            iconImageSize: [37, 48],
-            iconImageOffset: [-18, -48]
-        });
-
-        placeMap.geoObjects.add(myPlacemark);
-
-        $('.toggle-mode').each(function() {
-            let $buttons = $(this).find('button');
-
-            $buttons.click(function () {
-                $buttons.removeClass('btn-primary').addClass('btn-default');
-                $(this).removeClass('btn-default').addClass('btn-primary');
-
-                if ($(this).hasClass('slider')) {
-                    $('.place-slider').show();
-                    $('#place-map').hide();
-                    initPlaceSlider();
-                } else {
-                    $('.place-slider').hide();
-                    $('#place-map').show();
-                }
+                    if ($(this).hasClass('slider')) {
+                        $('.place-slider').show();
+                        $('#place-map').hide();
+                        initPlaceSlider();
+                    } else {
+                        $('.place-slider').hide();
+                        $('#place-map').show();
+                    }
+                });
             });
-        });
+        }
     });
 
     function getRandomInt(min, max) {

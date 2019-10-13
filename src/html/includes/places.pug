@@ -3,8 +3,9 @@
         span Найдено: 860 кальянных
         .sort
             span Сортировать по:
-            select(name="sort")
-                option(value="rating") Рейтингу
+            select.simple(name="sort")
+                option(value="rating", selected="selected") Рейтингу
+                option(value="distance") Расстоянию
     .list
         each val in [1, 2, 3, 4]
             .item
@@ -78,5 +79,5 @@
                 .bottom
                     span Отзывов: 203
                     include votes
-    button.btn.btn-warning.btn-block Показать карту кальянных
+    button.btn.btn-warning.btn-block.btn-upper Показать карту кальянных
     include ../core/pagination

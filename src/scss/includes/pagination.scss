@@ -1,22 +1,20 @@
 .pagination {
 	text-align: center;
+	display: flex;
+	justify-content: center;
 
 	a {
-		display: inline-block;
-		padding: 10px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 10px 20px;
 		border: 1px solid $gray-border;
-		width: 45px;
 		height: 45px;
+		transition: $transition;
 
 		&.active,
 		&:hover {
 			background: $gray-border;
-		}
-
-		&.prev,
-		&.next {
-			display: inline-block;
-			width: 100px;
 		}
 
 		&.prev {
@@ -30,6 +28,28 @@
 
 			svg {
 				margin-left: 10px;
+			}
+		}
+
+		@media (max-width: $tablet) {
+			padding: 10px 20px;
+
+			span {
+				display: none;
+			}
+
+			&.prev {
+
+				svg {
+					margin-right: 0;
+				}
+			}
+
+			&.next {
+
+				svg {
+					margin-left: 0;
+				}
 			}
 		}
 	}

@@ -11,10 +11,16 @@
 		}
 
 		.sort {
+			display: flex;
 			color: $gray-dark;
 
-			select {
-				color: $blue;
+			span {
+				display: inline-block;
+				margin-right: 10px;
+			}
+
+			.simple {
+				width: 110px;
 			}
 		}
 	}
@@ -23,89 +29,89 @@
 		display: flex;
 		justify-content: space-between;
 		flex-wrap: wrap;
-	}
 
-	.item {
-		color: #fff;
-		margin-bottom: 30px;
-		width: calc(100% / 3 - 15px);
+		.item {
+			color: #fff;
+			margin-bottom: 30px;
+			width: calc(100% / 3 - 15px);
 
-		@media (max-width: $laptop) {
-			width: calc(50% - 15px);
-		}
+			@media (max-width: $laptop) {
+				width: calc(50% - 15px);
+			}
 
-		@media (max-width: $tablet) {
-			width: 100%;
-		}
+			@media (max-width: $tablet) {
+				width: 100%;
+			}
 
-		.main {
-			background-repeat: no-repeat;
-			background-size: cover;
-			margin-bottom: 15px;
-			padding: 20px;
-			height: 250px;
-			display: flex;
-			flex-direction: column;
-			justify-content: space-between;
-			align-items: flex-start;
-			border-radius: 5px;
-
-			.rating {
-				font-size: 30px;
+			.main {
+				background-repeat: no-repeat;
+				background-size: cover;
+				margin-bottom: 15px;
+				padding: 20px;
+				height: 250px;
 				display: flex;
-				align-items: center;
+				flex-direction: column;
+				justify-content: space-between;
+				align-items: flex-start;
+				border-radius: 5px;
 
-				&.active svg {
-					fill: $yellow;
+				.rating {
+					font-size: 30px;
+					display: flex;
+					align-items: center;
+
+					&.active svg {
+						fill: $yellow;
+					}
+
+					svg {
+						margin-right: 10px;
+						fill: #fff;
+					}
 				}
 
-				svg {
-					margin-right: 10px;
-					fill: #fff;
+				h2 {
+					font-size: 25px;
+
+					a {
+						transition: $transition;
+					}
+
+					a:hover {
+						color: $yellow;
+					}
+				}
+
+				.btn {
+					font-size: 14px;
+					padding: 3px 8px;
+					cursor: default;
+				}
+
+				.address {
+					display: flex;
+					align-items: center;
+
+					svg {
+						margin-right: 10px;
+					}
+
+					span {
+						transition: $transition;
+						border-bottom: 1px solid #fff;
+					}
+
+					&:hover span {
+						border-bottom: 1px solid transparent;
+					}
 				}
 			}
 
-			h2 {
-				font-size: 25px;
-
-				a {
-					transition: $transition;
-				}
-
-				a:hover {
-					color: $yellow;
-				}
-			}
-
-			.btn {
-				font-size: 14px;
-				padding: 3px 8px;
-				cursor: default;
-			}
-
-			.address {
+			.bottom {
 				display: flex;
-				align-items: center;
-
-				svg {
-					margin-right: 10px;
-				}
-
-				span {
-					transition: $transition;
-					border-bottom: 1px solid #fff;
-				}
-
-				&:hover span {
-					border-bottom: 1px solid transparent;
-				}
+				justify-content: space-between;
+				color: #000;
 			}
-		}
-
-		.bottom {
-			display: flex;
-			justify-content: space-between;
-			color: #000;
 		}
 	}
 
