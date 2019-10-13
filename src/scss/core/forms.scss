@@ -13,6 +13,10 @@ form {
 
 		.form-row {
 
+			input {
+				border-radius: 0;
+			}
+
 			&:first-child {
 
 				input, button {
@@ -65,6 +69,7 @@ form {
 			font-family: $Futura;
 			font-size: 16px;
 			line-height: 150%;
+			height: 54px;
 
 			&:focus {
 				background: $gray;
