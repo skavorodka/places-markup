@@ -1,7 +1,7 @@
 .box.comforts-filter
 	.body
 		each val, index in ['Wi-fi', 'Оплата картами', 'Кухня', 'Бар', 'Парковка', 'Редкие виды табака', 'Кальян на фруктах', 'Vip залы', 'Трансляции', 'Настольные игры', 'Playstation/xbox', 'Детская комната']
-			.form-row.checkbox-row
+			.form-group.checkbox-row
 				label(for="comfort-" + index)
 					input(type="checkbox", name="comforts[]", id="comfort-" + index)
 					span= val

@@ -5,13 +5,13 @@
         <svg width="42" height="42" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M31.113 10.607L10.607 31.113m19.799 0L9.9 10.607" stroke="gray" stroke-width="2"/></svg>
     h3 Регистрация
     form(action="", method="POST")
-        .form-row
+        .form-group
             input(type="text", placeholder="Ваше имя")
-        .form-row
+        .form-group
             input(type="email", placeholder="Ваш E-mail")
-        .form-row
+        .form-group
             input(type="password", placeholder="Ваш пароль")
-        .form-row.checkbox-row
+        .form-group.checkbox-row
             label(for="signup-rules")
                 input(type="checkbox", name="rules", id="signup-rules")
                 span Я соглашаюсь с <a href="">пользовательским соглашением</a>
@@ -33,16 +33,17 @@
         | С помощью аккаунта
         a.pull-right.popup-link(href="#signup-modal") Создать аккаунт
     form(action="", method="POST")
-        .form-row
+        .form-group.has-error
             input(type="email", placeholder="Ваш E-mail")
-        .form-row
+            .help-block Значение «Ваш E-mail» не является правильным email адресом.
+        .form-group.has-success
             input(type="password", placeholder="Ваш пароль")
-        .form-row.checkbox-row
+        .form-group.checkbox-row
             label(for="login-rules")
                 input(type="checkbox", name="rules", id="login-rules")
                 span Я соглашаюсь с <a href="">пользовательским соглашением</a>
         button.btn.btn-warning.btn-upper Войти
-        button.btn.btn-default.btn-upper Забыли пароль?
+        a.btn.btn-default.btn-upper(href="") Забыли пароль?
 
 .modal.xl#reviews-modal
     a.close(href="")
@@ -67,14 +68,14 @@
                     p Ассортимент
                     +rating-stars(4)
         hr
-        .form-row
+        .form-group
             label Заголовок
             input(type="text", placeholder="Опишите заголовок отзыва")
         .two-cols
-            .form-row
+            .form-group
                 label Текст сообшения
                 textarea Расскажите, почему вам понравилось или не понравилось данное заведение
-            .form-row.files-row
+            .form-group.files-row
                 label Добавить фото
                 .files-list
                     .file-item
@@ -89,7 +90,7 @@
                         img.responsive(src="uploads/img-file.jpg")
                     .new-file
                 p Размер всех фото не должен привышать Мб, формат .jpg .jpeg. Минимальный размер 525x350.
-        .form-row.checkbox-row
+        .form-group.checkbox-row
             label(for="reviews-rules")
                 input(type="checkbox", name="rules", id="reviews-rules")
                 span Я соглашаюсь с <a href="">пользовательским соглашением</a>
