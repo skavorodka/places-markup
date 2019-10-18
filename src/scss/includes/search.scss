@@ -8,8 +8,7 @@
 	> input {
 		flex-grow: 1;
 		border-left: 1px solid #DFE1F0;
-		border-top-right-radius: 5px;
-		border-bottom-right-radius: 5px;
+		border-radius: 5px;
 		height: 45px;
 		padding: 0 20px;
 	}
@@ -18,38 +17,5 @@
 		position: absolute;
 		right: 20px;
 		top: 10px;
-	}
-
-	.selectize-control{
-		height: 45px;
-
-		&:after {
-			display: none;
-		}
-
-		&.single .selectize-input {
-			background: #fff;
-			height: 45px;
-			padding: 10px 20px;
-			border-top-left-radius: 5px;
-			border-bottom-left-radius: 5px;
-
-			&.input-active {
-				.item {
-					margin-right: 10px;
-				}
-			}
-
-			.item {
-				margin-right: 15px;
-			}
-		}
-	}
-
-	@media (max-width: $tablet) {
-
-		.selectize-control {
-			display: none;
-		}
 	}
 }
