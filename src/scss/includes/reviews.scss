@@ -31,6 +31,7 @@
 			text-align: center;
 			padding: 30px 40px;
 			border-right: 1px solid $gray-border;
+			max-width: 240px;
 
 			@media (max-width: $laptop) {
 				padding: 30px 20px;
@@ -62,6 +63,9 @@
 
 		.main {
 			padding: 25px 20px;
+			flex-grow: 1;
+			display: flex;
+			flex-direction: column;
 
 			.top {
 				display: flex;
@@ -77,6 +81,10 @@
 					display: inline-block;
 					font-size: 30px;
 				}
+			}
+
+			.text {
+				flex-grow: 1;
 			}
 
 			.bottom {

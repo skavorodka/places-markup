@@ -222,17 +222,20 @@ $(function() {
         }
 
         /////////////////////////////////////////////////////////////////////
-        if (document.getElementById('place-map')) {
-            $('#place-map').height($('.place-slider').height());
+        let $placeMap = $('#place-map');
+        if ($placeMap.length) {
+            let coords = $placeMap.data('coords').split(', ');
+
+            $placeMap.height($('.place-slider').height());
 
             let placeMap = new maps.Map('place-map', {
-                center: [59.939095, 30.315868],
+                center: coords,
                 zoom: 12,
                 controls: []
             });
 
-            let longitude = 59.939095,
-                latitude = 30.315868;
+            let longitude = coords[0],
+                latitude = coords[1];
 
             let myPlacemark = new maps.Placemark([longitude, latitude], {
                 hintContent: 'Собственный значок метки',
@@ -255,11 +258,11 @@ $(function() {
 
                     if ($(this).hasClass('slider')) {
                         $('.place-slider').show();
-                        $('#place-map').hide();
+                        $placeMap.hide();
                         initPlaceSlider();
                     } else {
                         $('.place-slider').hide();
-                        $('#place-map').show();
+                        $placeMap.show();
                     }
                 });
             });
