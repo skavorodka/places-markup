@@ -2,9 +2,10 @@ include core/mixins
 html(lang="ru")
     include core/head
     body
+        include core/header-top
         include core/header
         include core/sticky-header
-        include core/top-bar
+        include core/header-bottom
         +breadcrumbs(['Главная', 'Новости', 'DUFT Hookah Tobacco'])
         main
             .container

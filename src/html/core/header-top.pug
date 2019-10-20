@@ -1,0 +1,22 @@
+.header-top
+    .container
+        .city-block
+            span Санкт-Петербург
+            .city-list
+                .top-items
+                    a(href="") Санкт-Петербург
+                    a(href="") Москва
+                .items
+                    each val in [1, 2, 3, 4, 5]
+                        div
+                            each val in ['А', 'Б', 'В']
+                                span.letter= val
+                                a(href="") Город
+                                a(href="") Город
+                                a(href="") Город
+                                a(href="") Город
+                                a(href="") Город
+                                a(href="") Город
+        .auth-block
+            a.popup-link(href="#login-modal") Вход
+            a.popup-link(href="#signup-modal") Регистрация
