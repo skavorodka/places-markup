@@ -55,6 +55,9 @@ $(function() {
     }
 
     // Top menu
+    $('.header-top .city-block').click(function() {
+        $(this).toggleClass('active');
+    });
 
     $('.sticky-header .menu, .sticky-header .menu .overlay > a').click(function() {
         toggleTopMenu();
