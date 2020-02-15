@@ -43,7 +43,7 @@
 		"webpack": "^4.40.2",
 		"webpack-cli": "^3.3.8",
 		"webpack-dev-server": "^3.8.1",
-		"yarn": "^1.17.3",
+		"yarn": "^1.22.0",
 		"underscore.string": ">=3.3.5"
 	},
 	"dependencies": {
